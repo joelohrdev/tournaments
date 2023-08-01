@@ -28,6 +28,11 @@ class FieldsRelationManager extends RelationManager
                 Forms\Components\TextInput::make('city'),
                 Forms\Components\TextInput::make('state'),
                 Forms\Components\TextInput::make('zip_code'),
+                Forms\Components\Repeater::make('field_names')
+                    ->schema([
+                        Forms\Components\TextInput::make('name')
+                    ])
+                    ->columnSpanFull()
             ]);
     }
 

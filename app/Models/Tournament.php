@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class Tournament extends Model
 {
     protected $fillable = [
+        'logo',
         'name',
         'start_date',
         'end_date',

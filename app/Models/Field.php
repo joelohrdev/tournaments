@@ -13,6 +13,11 @@ class Field extends Model
         'city',
         'state',
         'zip_code',
+        'field_names'
+    ];
+
+    protected $casts = [
+        'field_names' => 'json',
     ];
 
     public function tournament(): BelongsTo

@@ -23,7 +23,8 @@ class TournamentResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('name')->required(),
+                Forms\Components\FileUpload::make('logo')->directory('logos')->columnSpanFull(),
+                Forms\Components\TextInput::make('name')->columnSpanFull()->required(),
                 Forms\Components\DatePicker::make('start_date')->required(),
                 Forms\Components\DatePicker::make('end_date')->required(),
 
@@ -35,8 +36,9 @@ class TournamentResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('name'),
-                Tables\Columns\TextColumn::make('start_date'),
-                Tables\Columns\TextColumn::make('end_date'),
+                Tables\Columns\ImageColumn::make('logo'),
+                Tables\Columns\TextColumn::make('start_date')->date('F d, Y'),
+                Tables\Columns\TextColumn::make('end_date')->date('F d, Y'),
             ])
             ->filters([
                 //
