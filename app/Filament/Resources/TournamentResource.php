@@ -26,6 +26,7 @@ class TournamentResource extends Resource
                 Forms\Components\TextInput::make('name')->required(),
                 Forms\Components\DatePicker::make('start_date')->required(),
                 Forms\Components\DatePicker::make('end_date')->required(),
+
             ]);
     }
 
@@ -53,7 +54,8 @@ class TournamentResource extends Resource
     public static function getRelations(): array
     {
         return [
-            //
+            RelationManagers\FieldsRelationManager::class,
+            RelationManagers\DivisionsRelationManager::class,
         ];
     }
 

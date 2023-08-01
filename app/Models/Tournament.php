@@ -28,4 +28,9 @@ class Tournament extends Model
     {
         return $this->hasMany(Field::class);
     }
+
+    public function divisions(): HasMany
+    {
+        return $this->hasMany(Division::class);
+    }
 }
