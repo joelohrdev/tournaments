@@ -34,4 +34,9 @@ class Tournament extends Model
     {
         return $this->hasMany(Division::class);
     }
+
+    public function teams(): HasMany
+    {
+        return $this->hasMany(Team::class);
+    }
 }
