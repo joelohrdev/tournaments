@@ -9,6 +9,6 @@ class TournamentSeeder extends Seeder
 {
     public function run(): void
     {
-        Tournament::factory()->create(20);
+        Tournament::factory()->count(30)->create();
     }
 }

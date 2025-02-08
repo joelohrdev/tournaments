@@ -13,12 +13,14 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
-
         User::factory()->create([
             'name' => 'Joe Lohr',
             'email' => 'emailme@joelohr.com',
             'password' => bcrypt('password'),
+        ]);
+
+        $this->call([
+            TournamentSeeder::class,
         ]);
     }
 }
