@@ -10,7 +10,8 @@ it('can see the page', function () {
 
     $response = $this->actingAs($user)->get(route('tournament.index'));
 
-    $response->assertStatus(200);
+    $response->assertStatus(200)
+        ->assertSee('Create');
 
     Livewire::test(Index::class)
         ->assertStatus(200);

@@ -15,7 +15,7 @@ class TournamentFactory extends Factory
     {
         return [
             'uuid' => $this->faker->uuid(),
-            'name' => $this->faker->name(),
+            'name' => $this->faker->company(),
             'start_date' => Carbon::now(),
             'end_date' => Carbon::now(),
             'address' => $this->faker->address(),
