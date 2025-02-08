@@ -15,24 +15,67 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
         @fluxStyles
     </head>
-    <body class="font-sans antialiased">
-        <div class="min-h-screen bg-gray-100 dark:bg-gray-900">
-            <livewire:layout.navigation />
+    <body class="min-h-screen bg-white dark:bg-zinc-800">
+        <flux:header container class="border-b border-zinc-200 bg-zinc-50 dark:border-zinc-700 dark:bg-zinc-900">
+            <flux:sidebar.toggle class="lg:hidden" icon="bars-2" inset="left" />
 
-            <!-- Page Heading -->
-            @if (isset($header))
-                <header class="bg-white shadow dark:bg-gray-800">
-                    <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
-                        {{ $header }}
-                    </div>
-                </header>
-            @endif
+            <flux:brand
+                href="#"
+                logo="https://fluxui.dev/img/demo/logo.png"
+                name="Acme Inc."
+                class="max-lg:hidden dark:hidden"
+            />
+            <flux:brand
+                href="#"
+                logo="https://fluxui.dev/img/demo/dark-mode-logo.png"
+                name="Acme Inc."
+                class="hidden max-lg:!hidden dark:flex"
+            />
 
-            <!-- Page Content -->
-            <main>
-                {{ $slot }}
-            </main>
-        </div>
+            <x-navigation />
+
+            <flux:spacer />
+
+            <x-user-dropdown />
+        </flux:header>
+
+        <flux:sidebar
+            stashable
+            sticky
+            class="border-r border-zinc-200 bg-zinc-50 lg:hidden dark:border-zinc-700 dark:bg-zinc-900"
+        >
+            <flux:sidebar.toggle class="lg:hidden" icon="x-mark" />
+
+            <flux:brand
+                href="#"
+                logo="https://fluxui.dev/img/demo/logo.png"
+                name="Acme Inc."
+                class="px-2 dark:hidden"
+            />
+            <flux:brand
+                href="#"
+                logo="https://fluxui.dev/img/demo/dark-mode-logo.png"
+                name="Acme Inc."
+                class="hidden px-2 dark:flex"
+            />
+
+            <x-navigation-mobile />
+
+            <flux:spacer />
+
+            <flux:navlist variant="outline">
+                <flux:navlist.item icon="cog-6-tooth" href="#">Settings</flux:navlist.item>
+                <flux:navlist.item icon="information-circle" href="#">Help</flux:navlist.item>
+            </flux:navlist>
+        </flux:sidebar>
+
+        <flux:main container>
+            <flux:heading size="xl" level="1">Good afternoon, Olivia</flux:heading>
+
+            <flux:subheading size="lg" class="mb-6">Here's what's new today</flux:subheading>
+
+            <flux:separator variant="subtle" />
+        </flux:main>
         @fluxScripts
     </body>
 </html>
