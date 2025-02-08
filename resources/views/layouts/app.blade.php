@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="csrf-token" content="{{ csrf_token() }}" />
 
-        <title>{{ config('app.name', 'Laravel') }}</title>
+        <title>{{ $title ?? config('app.name', 'Laravel') }}</title>
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net" />
@@ -70,11 +70,13 @@
         </flux:sidebar>
 
         <flux:main container>
-            <flux:heading size="xl" level="1">Good afternoon, Olivia</flux:heading>
+            @if (request()->routeIs('dashboard'))
+                <flux:heading size="xl" level="1">Good afternoon, Olivia</flux:heading>
 
-            <flux:subheading size="lg" class="mb-6">Here's what's new today</flux:subheading>
+                <flux:subheading size="lg" class="mb-6">Here's what's new today</flux:subheading>
 
-            <flux:separator variant="subtle" />
+                <flux:separator variant="subtle" />
+            @endif
 
             {{ $slot }}
         </flux:main>

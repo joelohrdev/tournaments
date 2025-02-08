@@ -1,6 +1,6 @@
 <flux:navlist variant="outline">
-    <flux:navlist.item icon="home" href="#" current>Home</flux:navlist.item>
-    <flux:navlist.item icon="inbox" badge="12" href="#">Inbox</flux:navlist.item>
+    <flux:navlist.item icon="home" href="{{ route('dashboard') }}" current>Home</flux:navlist.item>
+    <flux:navlist.item icon="inbox" href="{{ route('tournament.index') }}">Tournaments</flux:navlist.item>
     <flux:navlist.item icon="document-text" href="#">Documents</flux:navlist.item>
     <flux:navlist.item icon="calendar" href="#">Calendar</flux:navlist.item>
 
