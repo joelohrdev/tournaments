@@ -4,9 +4,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::view('/', 'welcome');
 
-Route::view('dashboard', 'dashboard')
-    ->middleware(['auth', 'verified'])
-    ->name('dashboard');
+Route::group(['middleware' => ['auth', 'verified']], function () {
+    Route::view('dashboard', 'dashboard')->name('dashboard');
+
+    Route::get('tournaments', \App\Livewire\Tournament\Index::class)->name('tournament.index');
+});
 
 Route::view('profile', 'profile')
     ->middleware(['auth'])
